@@ -9,6 +9,7 @@
         <div>
 	    <p>@<%= tweet.user.username %></p>
 	    <p><%= tweet.message.html_safe %></p>
+        <p>Posted <%= time_ago_in_words(tweet.created_at) %> ago.</p>
 	</div>
     <% end %>
 </div>
