@@ -13,7 +13,56 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+:root {
+    --blue-1: #E4F1F6;
+    --blue-2: #67AFCB;
+    --blue-3: #347B98;
+    --blue-4: #1A3E4C;
+    --blue-5: #092834;
+}
+
+/* Navbar Styling */
+nav.navbar.navbar-default {
+    margin-bottom: 0;
+    background-color: var(--blue-3);
+    border: none;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: var(--blue-1);
+}
+
+.navbar-default .navbar-brand:hover {
+    color: lightgray;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: var(--blue-1);
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: lightgray;
+}
+
+a:visited {
+    color: var(--blue-1);
+}
+
+/* Jumbotron Styling */
+.jumbotron {
+    background-color: var(--blue-2);
+    color: var(--blue-1);
+}
+
+.jumbotron h1 {
+    color: var(--blue-1);
+    padding: 15px 15px 15px 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

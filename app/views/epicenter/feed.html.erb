@@ -1,15 +1,26 @@
-<h1>@<%= current_user.username %>'s Twitter Feed</h1>
+<div class="jumbotron" ,="," width="100%">
+    <h1>@<%= current_user.username %>'s Feed</h1>
+</div>
 
-<%= render 'tweets/form', tweet: Tweet.new %>
+<div class="container">
+    <%= render 'tweets/form', tweet: Tweet.new %>
 
-<p>Here is what your "friends" are saying:</p>
+    <h3>Here is what your friends are saying:</h3>
 
-<div>
-    <% @following_tweets.each do |tweet| %>
-        <div>
-	    <p>@<%= tweet.user.username %></p>
-	    <p><%= tweet.message.html_safe %></p>
-        <p>Posted <%= time_ago_in_words(tweet.created_at) %> ago.</p>
-	</div>
-    <% end %>
+    <div class="panel-group">
+        <% @following_tweets.each do |tweet| %>
+            <div class="panel panel-default">
+                <div class="panel-heading" style="display: flex; justify-content: space-between;">
+                    <p>@<%= tweet.user.username %></p>
+                    <p>Posted <%= time_ago_in_words(tweet.created_at) %> ago.</p>
+                </div>
+                <div class="panel-body">
+                    <p><%= tweet.message.html_safe %></p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">Panel Content</div>
+            </div>
+        <% end %>
+    </div>
 </div>
