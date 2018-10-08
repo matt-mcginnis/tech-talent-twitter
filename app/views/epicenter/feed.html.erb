@@ -8,7 +8,7 @@
     <h3>Here is what your friends are saying:</h3>
 
     <div class="panel-group">
-        <% @following_tweets.each do |tweet| %>
+        <% @following_tweets.reverse.each do |tweet| %>
             <div class="panel panel-default">
                 <div class="panel-heading" style="display: flex; justify-content: space-between;">
                     <p>@<%= tweet.user.username %></p>
@@ -17,9 +17,6 @@
                 <div class="panel-body">
                     <p><%= tweet.message.html_safe %></p>
                 </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">Panel Content</div>
             </div>
         <% end %>
     </div>
