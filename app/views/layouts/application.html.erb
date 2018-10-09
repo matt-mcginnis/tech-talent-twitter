@@ -29,6 +29,7 @@
                         <% if user_signed_in? %>
                             <li><%= link_to "My Profile", show_user_path(:id => current_user.id) %></li>
                         <% end %>
+                        <li><%= link_to "All Users", all_users_path %></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <% if user_signed_in? %>
