@@ -8,7 +8,11 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    if params[:search]
+        @tweets = Tweet.search(params[:search]).order('created_at DESC').page(params[:page])
+    else
+        @tweets = Tweet.all.order('created_at DESC').page(params[:page])
+    end
   end
 
   # GET /tweets/1

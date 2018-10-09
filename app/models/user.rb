@@ -11,4 +11,8 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   validates :username, presence: true, uniqueness: true
+
+    def self.search(search)
+        where('username LIKE ?', "%#{search}%")
+    end
 end

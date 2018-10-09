@@ -4,14 +4,24 @@ class Tweet < ApplicationRecord
     has_many :tweet_tags
     has_many :tags, through: :tweet_tags
 
-    before_validation :link_check, on: :create
+    paginates_per 3
+
+    before_validation :link_check, :add_username, on: :create
 
     validates :message, presence: true
     validates :message, length: { maximum: 140, too_long: 'A tweet is only 140 max. Everybody knows that!' }, on: :create
 
     after_validation :apply_link, on: :create
 
+    def self.search(search)
+        where('message LIKE ?', "%#{search}%")
+    end
+
     private
+
+        def add_username
+            self.message = self.message + "<p hidden> #{self.user.username}</p>"
+        end
 
         def link_check
             check = false
