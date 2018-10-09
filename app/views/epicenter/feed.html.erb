@@ -19,6 +19,8 @@
                 </div>
                 <div class="panel-body">
                     <p><%= tweet.message.html_safe %></p>
+                    <br>
+                    <p><%= image_tag tweet.image.url.to_s, style: "max-width: 250px; max-height: 250px;" %></p>
                 </div>
             </div>
         <% end %>

@@ -1,6 +1,8 @@
 class Tweet < ApplicationRecord
     belongs_to :user
 
+    mount_uploader :image, ImageUploader
+
     has_many :tweet_tags
     has_many :tags, through: :tweet_tags
 
@@ -11,7 +13,7 @@ class Tweet < ApplicationRecord
     validates :message, presence: true
     validates :message, length: { maximum: 140, too_long: 'A tweet is only 140 max. Everybody knows that!' }, on: :create
 
-    after_validation :apply_link, on: :create
+    after_validation :apply_link, :image_url_to_string, on: :create
 
     def self.search(search)
         where('message LIKE ?', "%#{search}%")
@@ -21,6 +23,10 @@ class Tweet < ApplicationRecord
 
         def add_username
             self.message = self.message + "<p hidden> #{self.user.username}</p>"
+        end
+
+        def image_url_to_string
+            @image_url_string = self.image.url.to_s
         end
 
         def link_check
