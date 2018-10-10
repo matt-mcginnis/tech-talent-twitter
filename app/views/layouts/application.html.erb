@@ -16,7 +16,7 @@
                 <%= link_to "Home", root_path, class: "navbar-brand" %>
 
                 <ul class="nav navbar-nav">
-                    <li><%= link_to "Compose New Tweet", new_tweet_path %></li>
+                    <li><%= link_to "Compose New Status", new_tweet_path %></li>
                     <% if user_signed_in? %>
                         <li><%= link_to "My Profile", show_user_path(:id => current_user.id) %></li>
                     <% end %>

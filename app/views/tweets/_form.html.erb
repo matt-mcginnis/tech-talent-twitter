@@ -13,13 +13,13 @@
 <% end %>
 
 <div class="form-group">
-    <div class="col-md-11", style="padding-left: 0">
+    <div class="col-md-11", style="padding-left: 0; padding-right: 0;">
     <%= form.text_field :message, placeholder: "What's happening?", class: "form-control" %>
     </div>
-    <div class="col-md-1">
-    <%= form.submit "Tweet It!", class: "btn btn-primary", style: "float: right;" %>
+    <div class="col-md-1" style="padding-left: 0;">
+    <%= form.submit "Share It!", class: "btn btn-primary", style: "float: right;" %>
     </div>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, style: "padding-top: 10px;" %>
 </div>
 
 <div class="field">

@@ -1,12 +1,45 @@
 <div class="jumbotron" ,="," width="100%">
-    <h1>@<%= current_user.username %>'s Feed</h1>
+    <h1>
+        <div style="color: var(--color-5);">
+        <% if current_user.name.last != 's' %>
+            <%= current_user.name %>'s
+        <% else %>
+            <%= current_user.name %>'
+        <% end %>
+        </div>
+        <div style="color: var(--color-4);">
+            Feed
+        </div>
+    </h1>
 </div>
 
 <div class="container">
     <%= render 'tweets/form', tweet: Tweet.new %>
 
-    <h3>Here is what your friends are saying:</h3>
+    <div class="col-md-3">
+        <h1>
+            <% if current_user.avatar.blank? == false %>
+                <%= image_tag current_user.avatar.url, size:40, class: "user-pic-nav" %>
+            <% end %>
+            @<%= current_user.username %>
+        </h1>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Location:</strong> <%= current_user.location %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Bio:</strong> <%= current_user.bio %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
+    <div class="col-md-6">
     <div class="panel-group">
         <% @paginate_following_tweets.each do |tweet| %>
             <div class="panel panel-default">
@@ -26,7 +59,12 @@
                 </div>
             </div>
         <% end %>
-<%= link_to_prev_page @paginate_following_tweets, 'Previous Page' %>
-<%= link_to_next_page @paginate_following_tweets, 'Next Page' %>
+    <%= link_to_prev_page @paginate_following_tweets, 'Previous Page' %>
+    <%= link_to_next_page @paginate_following_tweets, 'Next Page' %>
+    </div>
+</div>
+
+<div class="col-md-3">
+
 </div>
 </div>
