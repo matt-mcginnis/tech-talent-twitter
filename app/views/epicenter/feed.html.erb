@@ -35,6 +35,21 @@
                         <strong>Bio:</strong> <%= current_user.bio %>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <strong>Posts:</strong> <%= current_user.tweets.length %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong><%= link_to "Following: #{@following.length}", following_path(id: current_user.id) %></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong><%= link_to "Followers: #{@followers.length}", followers_path(id: current_user.id) %></strong>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
