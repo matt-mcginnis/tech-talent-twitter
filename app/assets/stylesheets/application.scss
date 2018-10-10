@@ -115,8 +115,13 @@ input.btn.btn-secondary.my-2.my-sm-0:hover {
 a {
     color: var(--color-5);
 }
+
 a:visited {
     color: var(--color-5);
+}
+
+a:hover {
+    background-color: var(--color-1);
 }
 
 /* Jumbotron Styling */
@@ -127,9 +132,10 @@ a:visited {
 
 .jumbotron h1 {
     color: var(--color-1);
-    padding: 15px 15px 15px 15px;
+    margin-left: 10%;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-left: 15px;
 }
 
 /* Panel Styling */
