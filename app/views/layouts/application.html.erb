@@ -24,7 +24,7 @@
                 </ul>
 
             <%= form_tag(tweets_path, :method => "get", id: "search-form", class: "form-inline", style: "margin-left: 15px") do %>
-                <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2", style: "background-color: #F7E9D4;" %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2" %>
                 <%= submit_tag "Search", :name => nil, class: "btn btn-secondary my-2 my-sm-0" %>
             <% end %>
 
