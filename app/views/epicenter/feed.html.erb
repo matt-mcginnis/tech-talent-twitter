@@ -8,7 +8,7 @@
     <h3>Here is what your friends are saying:</h3>
 
     <div class="panel-group">
-        <% @following_tweets.reverse.each do |tweet| %>
+        <% @paginate_following_tweets.each do |tweet| %>
             <div class="panel panel-default">
                 <div class="panel-heading" style="display: flex; justify-content: space-between;">
                     <p>@<%= link_to tweet.user.username, show_user_path(:id => tweet.user.id) %></p>
@@ -24,5 +24,7 @@
                 </div>
             </div>
         <% end %>
-    </div>
+<%= link_to_prev_page @paginate_following_tweets, 'Previous Page' %>
+<%= link_to_next_page @paginate_following_tweets, 'Next Page' %>
+</div>
 </div>

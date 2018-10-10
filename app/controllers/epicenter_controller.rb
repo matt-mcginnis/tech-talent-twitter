@@ -2,13 +2,15 @@ class EpicenterController < ApplicationController
     before_action :authenticate_user!
 
     def feed
-        @following_tweets = []
+        following_tweets = []
 
         Tweet.all.each do |tweet|
             if current_user.following.include?(tweet.user_id) || current_user.id == tweet.user_id
-                @following_tweets.push(tweet)
+                following_tweets.push(tweet)
             end
         end
+
+        @paginate_following_tweets = Kaminari.paginate_array(following_tweets.reverse).page(params[:page]).per(5)
     end
 
     def show_user

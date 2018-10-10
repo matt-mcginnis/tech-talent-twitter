@@ -1,8 +1,6 @@
 class Tweet < ApplicationRecord
     belongs_to :user
 
-    mount_uploader :image, ImageUploader
-
     has_many :tweet_tags
     has_many :tags, through: :tweet_tags
 
@@ -15,6 +13,8 @@ class Tweet < ApplicationRecord
 
     after_validation :apply_link, :image_url_to_string, on: :create
 
+    mount_uploader :image, ImageUploader
+
     def self.search(search)
         where('message LIKE ?', "%#{search}%")
     end
@@ -23,10 +23,6 @@ class Tweet < ApplicationRecord
 
         def add_username
             self.message = self.message + "<p hidden> #{self.user.username}</p>"
-        end
-
-        def image_url_to_string
-            @image_url_string = self.image.url.to_s
         end
 
         def link_check
