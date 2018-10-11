@@ -34,10 +34,13 @@ class EpicenterController < ApplicationController
         end
 
         # Tags
-        @tags = []
+        @top_tags = {}
 
         Tag.all.each do |tag|
+            @top_tags[tag.id] = tag.tweets.length
         end
+
+        @top_tags = @top_tags.sort_by{|k,v| v}.reverse
     end
 
     # Show User Action

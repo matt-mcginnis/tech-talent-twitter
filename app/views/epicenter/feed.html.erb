@@ -17,7 +17,7 @@
     <%= render 'tweets/form', tweet: Tweet.new %>
 
     <div class="col-md-3">
-        <h1>
+        <h1 style="color: var(--color-4);">
             <% if current_user.avatar.blank? == false %>
                 <%= image_tag current_user.avatar.url, size:40, class: "user-pic-nav" %>
             <% end %>
@@ -80,7 +80,10 @@
 </div>
 
 <div class="col-md-3">
-<h1>What's Trending</h1>
-
+<h1 style="color: var(--color-4);">What's Trending</h1>
+<h4>Top Tags: </h3>
+<% @top_tags.first(10).each do |tag| %>
+    <%= link_to Tag.find(tag[0]).phrase, tag_tweets_path(:id => tag[0]) %>
+<% end %>
 </div>
 </div>

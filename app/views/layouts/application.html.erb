@@ -13,7 +13,7 @@
 
         <% if request.fullpath != "/users/sign_in" && request.fullpath != "/users/sign_up"  && request.fullpath != "/users"%>
             <nav class="navbar navbar-light">
-                <%= link_to "Home", root_path, class: "navbar-brand" %>
+                <%= link_to "Feed", root_path, class: "navbar-brand" %>
 
                 <ul class="nav navbar-nav">
                     <li><%= link_to "Compose New Status", new_tweet_path %></li>
