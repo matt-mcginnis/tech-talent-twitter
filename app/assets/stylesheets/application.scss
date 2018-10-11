@@ -162,13 +162,38 @@ a:hover {
     align-items: center;
     background-color: var(--color-2);
     color: var(--color-5);
-    width: 600px;
-    height: 500px;
+    width: 500px;
+    height: 400px;
     border: 1px solid var(--color-5);
     border-radius: 0px 60px 0px 60px;
 }
 
 .login-backdrop a:hover {
+    color: var(--color-5);
+    background-color: var(--color-2);
+}
+
+/* Signup Styling */
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-2);
+    color: var(--color-5);
+    width: 500px;
+    height: 740px;
+    border: 1px solid var(--color-5);
+    border-radius: 0px 60px 0px 60px;
+}
+
+.signup-backdrop a:hover {
     color: var(--color-5);
     background-color: var(--color-2);
 }
