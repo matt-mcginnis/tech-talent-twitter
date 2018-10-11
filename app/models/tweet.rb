@@ -11,7 +11,7 @@ class Tweet < ApplicationRecord
     validates :message, presence: true
     validates :message, length: { maximum: 140, too_long: 'A tweet is only 140 max. Everybody knows that!' }, on: :create
 
-    after_validation :apply_link, :image_url_to_string, on: :create
+    after_validation :apply_link, on: :create
 
     mount_uploader :image, ImageUploader
 
@@ -22,7 +22,7 @@ class Tweet < ApplicationRecord
     private
 
         def add_username
-            self.message = self.message + "<p hidden> #{self.user.username}</p>"
+            self.message = self.message + " <p hidden> #{self.user.username}</p>"
         end
 
         def link_check

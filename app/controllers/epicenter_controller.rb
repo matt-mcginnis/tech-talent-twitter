@@ -32,6 +32,12 @@ class EpicenterController < ApplicationController
                 @followers.push(user)
             end
         end
+
+        # Tags
+        @tags = []
+
+        Tag.all.each do |tag|
+        end
     end
 
     # Show User Action
