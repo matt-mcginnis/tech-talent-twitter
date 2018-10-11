@@ -121,6 +121,7 @@ a:visited {
 }
 
 a:hover {
+    color: var(--color-5);
     background-color: var(--color-1);
 }
 
@@ -144,5 +145,30 @@ a:hover {
 }
 
 .panel-body {
+    background-color: var(--color-2);
+}
+
+/* Login Styling */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.login-backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-2);
+    color: var(--color-5);
+    width: 600px;
+    height: 500px;
+    border: 1px solid var(--color-5);
+    border-radius: 0px 60px 0px 60px;
+}
+
+.login-backdrop a:hover {
+    color: var(--color-5);
     background-color: var(--color-2);
 }
