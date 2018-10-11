@@ -1,6 +1,7 @@
 class EpicenterController < ApplicationController
     before_action :authenticate_user!
 
+    # Feed Action
     def feed
         @user = current_user
 
@@ -33,8 +34,27 @@ class EpicenterController < ApplicationController
         end
     end
 
+    # Show User Action
     def show_user
         @user = User.find(params[:id])
+
+        # Following
+        @following = []
+
+        User.all.each do |user|
+            if @user.following.include?(user.id)
+                @following.push(user)
+            end
+        end
+
+        # Followers
+        @followers = []
+
+        User.all.each do |user|
+            if user.following.include?(@user.id)
+                @followers.push(user)
+            end
+        end
     end
 
     def all_users
