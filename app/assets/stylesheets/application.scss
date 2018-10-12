@@ -127,7 +127,7 @@ a:hover {
 
 /* Jumbotron Styling */
 .jumbotron {
-    background-color: var(--color-2);
+    background-image: linear-gradient(to top left, var(--color-3), var(--color-2));
     color: var(--color-1);
 }
 
@@ -137,15 +137,6 @@ a:hover {
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 15px;
-}
-
-/* Panel Styling */
-.panel-default > .panel-heading {
-    background-color: var(--color-3);
-}
-
-.panel-body {
-    background-color: var(--color-2);
 }
 
 /* Login Styling */
@@ -196,4 +187,22 @@ a:hover {
 .signup-backdrop a:hover {
     color: var(--color-5);
     background-color: var(--color-2);
+}
+
+/* Feed Profile */
+.col-md-3.feed-profile h1 a {
+    color: var(--color-4);
+}
+
+.col-md-3.feed-profile h1 a:visited {
+    color: var(--color-4);
+}
+
+/* Panel Styling */
+.panel.panel-default .panel-body {
+    background-image: linear-gradient(to top left, var(--color-3), var(--color-2));
+}
+
+.panel.panel-default .panel-body a {
+    background-color: transparent;
 }

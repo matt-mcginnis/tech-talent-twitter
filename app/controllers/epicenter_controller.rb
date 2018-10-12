@@ -41,6 +41,15 @@ class EpicenterController < ApplicationController
         end
 
         @top_tags = @top_tags.sort_by{|k,v| v}.reverse
+
+        # Tweeters
+        @top_tweeters = {}
+
+        User.all.each do |user|
+            @top_tweeters[user.id] = user.tweets.length
+        end
+
+        @top_tweeters = @top_tweeters.sort_by{|k,v| v}.reverse
     end
 
     # Show User Action
