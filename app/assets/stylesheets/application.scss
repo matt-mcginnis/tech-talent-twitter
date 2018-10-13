@@ -207,3 +207,10 @@ a:hover {
 .panel.panel-default .panel-body a {
     background-color: transparent;
 }
+
+/* User List Styling */
+.user-list-wells {
+    background-image: linear-gradient(to top left, var(--color-2), var(--color-1));
+    border: none;
+    box-shadow: none;
+}

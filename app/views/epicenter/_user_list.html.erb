@@ -2,7 +2,7 @@
 <div class="row">
   <% @users.each do |user| %>
     <div class="col-md-4">
-      <div class="well user-list-wells" style="background-image: linear-gradient(to top left, var(--color-2), var(--color-1)); border: none;">
+      <div class="well user-list-wells">
         <div class="row">
           <div class="col-md-6">
             <%= user_avatar_helper(user, 100, "user-pic-md") %>
