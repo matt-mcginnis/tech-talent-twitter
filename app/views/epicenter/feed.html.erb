@@ -18,9 +18,7 @@
 
     <div class="col-md-3 feed-profile">
         <h1 style="color: var(--color-4);">
-            <% if current_user.avatar.blank? == false %>
-                <%= image_tag current_user.avatar.url, size:40, class: "user-pic-nav" %>
-            <% end %>
+            <%= user_avatar_helper(current_user, 50, "user-pic-nav") %>
             @<%= link_to current_user.username, show_user_path(id: current_user.id), class: "user-profile-link" %>
         </h1>
         <table class="table">
@@ -89,7 +87,7 @@
     <%= link_to Tag.find(tag[0]).phrase, tag_tweets_path(id: tag[0]) %>
 <% end %>
 
-<h4>Top Tweeters: </h4>
+<h4>Top Posters: </h4>
 <ol style="padding-left: 15px;">
 <% @top_tweeters.first(5).each do |user| %>
 <li>

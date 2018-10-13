@@ -1,2 +1,11 @@
-<h2><%= @user.name %> is following:</h2>
+<div class="jumbotron">
+    <h1>
+        <div style="color: var(--color-5);">
+            <%= @user.name %> is
+        </div>
+        <div style="color: var(--color-4);">
+            Following
+        </div>
+    </h1>
+</div>
 <%= render 'user_list' %>

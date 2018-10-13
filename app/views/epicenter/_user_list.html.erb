@@ -1,13 +1,11 @@
 <div class="container">
 <div class="row">
   <% @users.each do |user| %>
-    <div class="col-md-3">
-      <div class="well user-list-wells">
+    <div class="col-md-4">
+      <div class="well user-list-wells" style="background-image: linear-gradient(to top left, var(--color-2), var(--color-1)); border: none;">
         <div class="row">
           <div class="col-md-6">
-            <% if user.avatar.url != nil %>
-                <%= image_tag user.avatar.url, class: "user-pic-md", size: 100 %>
-            <% end %>
+            <%= user_avatar_helper(user, 100, "user-pic-md") %>
           </div>
           <div class="col-md-6">
             <p>
@@ -15,7 +13,7 @@
                 <%= link_to "Following", unfollow_path(id: user.id), class: "btn btn-primary", id: "unfollow_btn" %>
               <% else %>
                 <% if current_user.id != user.id %>
-                  <%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary" %>
+                  <%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary", style: "float: right;" %>
                 <% end %>
               <% end %>
             </p>
